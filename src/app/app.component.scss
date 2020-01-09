@@ -1,0 +1,33 @@
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.left-header-container {
+    width: 92%;
+    padding-top: 15px;
+    padding-left: 20px;
+    @media screen and (max-width: 767px) {
+        width: 80%;
+    }
+    background-color: #346eca;
+}
+
+.right-header-container {
+    padding-top: 18px;
+    width: 8%;
+    @media screen and (max-width: 767px) {
+        width: 20%;
+    }
+    background-color: black;
+    color: white;
+}
+
+.page-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    z-index: 1024;
+}
