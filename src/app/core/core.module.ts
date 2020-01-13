@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ObjectiveComponent } from './components/objective/objective.component';
 import { CreateObjectiveComponent } from './components/create-objective/create-objective.component';
-import { MatStepperModule, MatInputModule, MatButtonModule, MatAutocompleteModule, MatExpansionModule, MatIconModule, MatDatepickerModule, MatSelectModule } from '@angular/material';
+import { MatStepperModule, MatInputModule, MatButtonModule, MatAutocompleteModule, MatExpansionModule, MatIconModule, MatDatepickerModule, MatSelectModule, MatRadioGroup, MatRadioModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -17,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatIconModule,
     MatDatepickerModule,
     MatSelectModule,
+    MatRadioModule,
     FormsModule,
     ReactiveFormsModule
   ],

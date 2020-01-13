@@ -1,18 +1,18 @@
 <div class="d-flex flex-column set-top-margin">
     <div class="sub-header">
-        <span class="blur-text">OBJECTIVES</span><span *ngIf="routeLink" class="bold-text text-uppercase"> >
+        <span class="font-weight-light">OBJECTIVES</span><span *ngIf="routeLink" class="font-weight-bold text-uppercase"> >
             {{routeLink}}</span>
     </div>
     <div class="main-container">
         <div class="side-progress mx-auto mt-2">
-            <div class="d-flex side-menu">
+            <div class="side-menu">
                 <div class="section-title" [ngClass]="{
                     'text-green': firstStep,
                     'text-gray': !firstStep
                 }">
                     Define Objective
                 </div>
-                <div class="d-flex flex-column ml-1">
+                <div class="progress">
                     <div class="node background-gray" [ngClass]="{
                         'background-green': firstStep
                     }"></div>
@@ -21,14 +21,14 @@
                     }"></div>
                 </div>
             </div>
-            <div class="d-flex">
+            <div class="side-menu">
                 <div class="section-title" [ngClass]="{
                     'text-green': secondStep,
                     'text-gray': !secondStep
                 }">
                     KRA
                 </div>
-                <div class="d-flex flex-column ml-1">
+                <div class="progress">
                     <div class="node background-gray" [ngClass]="{
                         'background-green': secondStep
                     }"></div>
@@ -37,14 +37,14 @@
                     }"></div>
                 </div>
             </div>
-            <div class="d-flex">
+            <div class="d-flex side-menu">
                 <div class="section-title" [ngClass]="{
                     'text-green': thirdStep,
                     'text-gray': !thirdStep
                 }">
                     Weightage & Privacy
                 </div>
-                <div class="d-flex flex-column ml-1">
+                <div class="progress">
                     <div class="node background-gray" [ngClass]="{
                         'background-green': thirdStep
                     }"></div>
@@ -53,14 +53,14 @@
                     }"></div>
                 </div>
             </div>
-            <div class="d-flex">
+            <div class="side-menu">
                 <div class="section-title" [ngClass]="{
                     'text-green': fourthStep,
                     'text-gray': !fourthStep
                 }">
                     Summary
                 </div>
-                <div class="d-flex flex-column ml-1">
+                <div class="progress">
                     <div class="node background-gray" [ngClass]="{
                         'background-green': fourthStep
                     }"></div>
@@ -93,6 +93,7 @@
                             </mat-form-field>
 
                             <label for="timeline" class="mt-1">Timeline:</label><br />
+
                             <mat-form-field class="half-width">
                                 <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" placeholder="Start Date">
                                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -129,17 +130,24 @@
                                 </div>
                             </div>
                             <div class="full-width d-flex flex-row-reverse">
-                                <button *ngIf="selectedValue !== 'Individual'" (click)="suggest()" class="addMore">+Add More{{removeLabel}}</button>
+                                <button *ngIf="selectedValue !== 'Individual'" (click)="suggest()" class="addMore pointer">+Add
+                                    More{{removeLabel}}</button>
                             </div>
 
                             <mat-form-field class="mt-1">
                                 <label for="description">Owner:</label>
-                                <mat-select [(ngModel)]="selectedValue" name="food">
-                                    <mat-option *ngFor="let ownership of ownerships" [value]="ownership.name">
-                                        {{ownership.name}}
+                                <mat-select [(ngModel)]="selectedAlignment" name="alignment" (selectionChange)="setAlignmentOptions($event.value)">
+                                    <mat-option *ngFor="let alignment of alignments" [value]="alignment.id">
+                                        {{alignment.name}}
                                     </mat-option>
                                 </mat-select>
                             </mat-form-field>
+
+                            <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="selectedAlignmentOption">
+                                <mat-radio-button class="example-radio-button" *ngFor="let option of alignmentOptions" [value]="option.id">
+                                    {{option.name}}
+                                </mat-radio-button>
+                            </mat-radio-group>
 
                         </mat-expansion-panel>
                     </mat-accordion>
@@ -199,7 +207,7 @@
             </div>
             <div class="summary-container">
                 <div class="summary-controls form-group mx-auto">
-                    <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="15"></textarea>
+                    <textarea class="form-control rounded-0" placeholder="SUMMARY" id="exampleFormControlTextarea1" rows="15"></textarea>
                     <button class="btn progress-btn full-width">SAVE PROGRESS</button>
                 </div>
             </div>

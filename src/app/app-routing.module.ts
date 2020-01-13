@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ObjectiveComponent } from './core/components/objective/objective.component';
 import { CreateObjectiveComponent } from './core/components/create-objective/create-objective.component';
-import { appConstants } from './core/constants/ownerships';
+import { appConstants } from './core/constants/appConstants';
 
 
 const routes: Routes = [
